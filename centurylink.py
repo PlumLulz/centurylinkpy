@@ -74,7 +74,7 @@ def centurylink(serial):
 		replacement = filler[ascii_sum % 31]
 		key = replacement.lower() + key[1:]
 
-	for i in range(1, 14):
+	for i in range(0, 14):
 		if key[i] in bad_chars:
 			shift1 = i % 4
 			shift2 = i % 5
@@ -89,8 +89,8 @@ def centurylink(serial):
 	bad_output = "01259IJOQSZgijloqsz"
 	output_replacements = "3B7C864EAFD"
 
-	for pos in range(1, 14):
-		for bad_pos in range(1, 19):
+	for pos in range(0, 14):
+		for bad_pos in range(0, 19):
 			if bad_output[bad_pos] == key[pos]:
 				add = pos + 8
 				key = "%s%s%s" % (key[:pos], output_replacements[add % 11].lower(), key[pos+1:])
